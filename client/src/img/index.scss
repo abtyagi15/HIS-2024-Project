@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*{
+  transition: 0.3s ease-in-out;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  &:before{
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+
+#test-container{
+  align-items: center;
+  justify-content: center;
+}
+.bar-of-progress{
+  position: absolute;
+}
+.active{
+  color: #5c83ff;
+  border-bottom:solid darkblue 2px;
+  font-weight: 500;
+}
+.passive{
+  border: 0;
+  color: black;
+  font-weight: normal;
+}
+.service-bg{
+  background-image: url("./img/bloodtest.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.subservice{
+  justify-content: center;
+
+}
+.over-bg{
+  background-color: rgba(27, 63, 116, 0.493);
+  backdrop-filter: blur(5px);
+}
+.logo{
+  width: 10%;
+}
+.book{
+  padding: 15px;
+}
+@media (max-width: 799px) {
+  .logo{
+    
+    width: 100%;
+  }
+  .banner{
+    display: none;
+  }
+  .head-1{
+    background-image: url("https://img.freepik.com/free-vector/health-professional-team_52683-36023.jpg?w=2000") ;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+textarea{
+  width: 50%;
+}
+.textarea{
+  align-items: center;
+}
+.doccenter{
+  justify-content: center;
+}.devcenter{
+  align-items: center;
+}
