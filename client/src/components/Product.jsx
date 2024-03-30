@@ -1,11 +1,9 @@
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
-import data from "../data";
+
 export default function Tests(props) {
   const [showMore, setShowMore] = useState(false);
   const loadcontent = props.load;
-
-  const medical_equipment = data.medical_equipment; // Access the medical_equipment array from the imported data
 
   const handleShowMore = () => {
     setShowMore(true);
@@ -29,28 +27,6 @@ export default function Tests(props) {
               alt=""
             />
 
-            {medical_equipment
-              .slice(0, showMore ? medical_equipment.length : 1)
-              .map((product, index) => (
-                <div
-                  key={index}
-                  className="bg-gradient-to-r mt-14 from-teal-300 via-green-100 to-white max-w-sm m-2 bg-white hover:scale-105
-          rounded-lg shadow-md"
-                >
-                  <Link onClick={loadcontent} to="/about">
-                    <img
-                      className="w-96 h-64 object-cover rounded-t-lg transition duration-300 transform"
-                      src={product.image}
-                      alt=""
-                    />
-                  </Link>
-                  <div className="p-5">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                      {product.name}
-                    </h5>
-                  </div>
-                </div>
-              ))}
             {!showMore && (
               <div
                 className="bg-gradient-to-r mt-14 from-teal-300 via-green-100 to-white max-w-sm m-2 bg-white hover:scale-105

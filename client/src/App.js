@@ -22,7 +22,7 @@ import FindLocation from "./utils/FindLocation";
 import SellRent from "./Forms/sellForm";
 import WheelChair from "./components/products/WheelChair";
 import Oximeter from "./components/products/Oximeter";
-import Crutches from "./components/products/Crutches";
+import Crutches from "./components/products/Cruthches";
 import Commode from "./components/products/Commode";
 import Walker from "./components/products/Walker";
 
@@ -97,7 +97,7 @@ function App() {
                 </PrivateRoute>
               }
             />
-            
+
             <Route
               path="/product/wheelchair"
               element={
