@@ -29,16 +29,16 @@ function Header(props) {
             Donation
           </Link>
         </p>
-        <div className="bg-[#cfecea]  shadow-lg shadow-green-700/60 text-base text-black font-normal rounded-full h-10 pt-2 w-32 text-center cursor-pointer">
-          <p className="flex items-center justify-center gap-3">
-            Sell/Rent
-            <span className="bg-white/20 p-1 rounded-full">
-              <Link onClick={loadcontent} to="/sell-form">
+        <Link to="/sell-form">
+          <div className="bg-[#cfecea]  shadow-lg shadow-green-700/60 text-base text-black font-normal rounded-full h-10 pt-2 w-32 text-center cursor-pointer">
+            <p className="flex items-center justify-center gap-3">
+              Sell/Rent
+              <span className="bg-white/20 p-1 rounded-full">
                 <AiOutlineArrowRight />
-              </Link>
-            </span>
-          </p>
-        </div>
+              </span>
+            </p>
+          </div>
+        </Link>
       </div>
     </div>
   );

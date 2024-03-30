@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 import equipment from "../../assests/equipments.json";
-const Cruthches = () => {
-  const product = equipment.crutches;
+const HospitalBeds = () => {
+  const product = equipment.hospital_beds;
   console.log(product);
   return (
     <div className="flex flex-wrap gap-3">
@@ -39,4 +39,4 @@ const Cruthches = () => {
   );
 };
 
-export default Cruthches
+export default HospitalBeds;

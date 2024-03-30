@@ -25,6 +25,7 @@ import Oximeter from "./components/products/Oximeter";
 import Crutches from "./components/products/Cruthches";
 import Commode from "./components/products/Commode";
 import Walker from "./components/products/Walker";
+import HospitalBeds from "./components/products/HospitalBeds";
 
 function App() {
   const progress = new ProgressBar();
@@ -103,6 +104,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <WheelChair />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/product/hospital-beds"
+              element={
+                <PrivateRoute>
+                  <HospitalBeds />
                 </PrivateRoute>
               }
             />

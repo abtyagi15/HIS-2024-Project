@@ -38,7 +38,7 @@ const Login = ({handleToggle}) => {
       console.log(data);
 
       if (data.success) {
-        navigate("/home");
+        navigate("/");
         console.log("If data.success then navigate to home page");
       }
 
