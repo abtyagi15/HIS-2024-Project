@@ -12,7 +12,7 @@ const AccountVerificationEmail = (otp) => {
             <h2 style="color: #333333;">Account Verification</h2>
             <p style="color: #666666;">Thank you for signing up with us! To complete your account verification, please use the OTP below:</p>
             <div style="background-color: #ffffff; padding: 20px; border-radius: 5px; box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);">
-                <p style="font-size: 20px; color: #333333; margin: 0; padding: 0;">Your OTP: <strong style="color: #007bff;">${OTP}</strong></p>
+                <p style="font-size: 20px; color: #333333; margin: 0; padding: 0;">Your OTP: <strong style="color: #007bff;">${otp}</strong></p>
             </div>
             <p style="color: #666666;">Please enter this OTP in the appropriate field to verify your account.</p>
             <p style="color: #666666;">If you didn't request this verification, you can safely ignore this email.</p>
