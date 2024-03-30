@@ -34,12 +34,9 @@ function App() {
       about.classList.remove("passive");
 
       home.classList.add("passive");
-      
 
       about.classList.add("active");
-    }
-
-     else if (location === "/book") {
+    } else if (location === "/book") {
       about.classList.add("passive");
       home.classList.add("passive");
     } else {
@@ -65,7 +62,6 @@ function App() {
           home.classList.add("passive");
 
           about.classList.add("active");
-        
         } else if (location === "/book") {
           about.classList.add("passive");
           home.classList.add("passive");
