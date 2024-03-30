@@ -18,7 +18,7 @@ import ResetPassword from "./img/ResetPassword";
 import VerifyEmail from "./img/VerifyEmail";
 import DonationForm from "./Forms/donorForm";
 import Login from "./img/Login";
-import FindLocation from "./components/FindLocation";
+import FindLocation from "./utils/FindLocation";
 
 function App() {
   const progress = new ProgressBar();
@@ -29,30 +29,22 @@ function App() {
   setTimeout(() => {
     let location = window.location.pathname;
     let home = document.getElementById("home");
-    let contact = document.getElementById("contact");
     let about = document.getElementById("about");
     if (location === "/about") {
       about.classList.remove("passive");
 
       home.classList.add("passive");
-      contact.classList.add("passive");
+      
 
       about.classList.add("active");
-    } else if (location === "/contact") {
-      contact.classList.remove("passive");
+    }
 
-      home.classList.add("passive");
-      about.classList.add("passive");
-
-      contact.classList.add("active");
-    } else if (location === "/book") {
-      contact.classList.add("passive");
+     else if (location === "/book") {
       about.classList.add("passive");
       home.classList.add("passive");
     } else {
       home.classList.remove("passive");
       about.classList.add("passive");
-      contact.classList.add("passive");
 
       home.classList.add("active");
     }
@@ -65,31 +57,21 @@ function App() {
     setTimeout(() => {
       let location = window.location.pathname;
       let home = document.getElementById("home");
-      let contact = document.getElementById("donate");
       let about = document.getElementById("about");
-      if (home && contact && about) {
+      if (home && about) {
         if (location === "/about") {
           about.classList.remove("passive");
 
           home.classList.add("passive");
-          contact.classList.add("passive");
 
           about.classList.add("active");
-        } else if (location === "/contact") {
-          contact.classList.remove("passive");
-
-          home.classList.add("passive");
-          about.classList.add("passive");
-
-          contact.classList.add("active");
+        
         } else if (location === "/book") {
-          contact.classList.add("passive");
           about.classList.add("passive");
           home.classList.add("passive");
         } else {
           home.classList.remove("passive");
           about.classList.add("passive");
-          contact.classList.add("passive");
 
           home.classList.add("active");
         }
