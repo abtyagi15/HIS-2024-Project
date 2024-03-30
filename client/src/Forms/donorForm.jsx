@@ -6,6 +6,7 @@ function DonationForm() {
   const handleUserTypeChange = (event) => {
     setUserType(event.target.value);
   };
+
   const handleSubmit = () => {
     // Logic to handle form submission
     console.log("Form submitted!");
@@ -13,7 +14,7 @@ function DonationForm() {
 
   return (
     <div className="bg-[#d7f3f4] min-h-screen flex flex-col justify-center items-center">
-      <h2 className="text-2xl mb-4">Donation Form</h2>
+      <h2 className="text-2xl mb-4 font-medium">Donation Form</h2>
       <div className="flex items-center mb-4">
         <label className="mr-2">
           <input
@@ -42,7 +43,7 @@ function DonationForm() {
 
       <button
         onClick={handleSubmit}
-        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+        className="bg-[#5eead4] hover:bg-white text-black font-bold py-2 px-4 rounded mt-4"
       >
         Submit
       </button>
@@ -66,7 +67,7 @@ function DonorForm() {
       </div>
 
       <div className="mb-4">
-        <label className="block mb-1">Address:</label>
+        <label className="block mb-1">City:</label>
         <textarea className="w-full border rounded px-2 py-1"></textarea>
       </div>
 
@@ -111,13 +112,6 @@ function RecipientForm() {
         <label className="block mb-1">Why do you need the product?</label>
         <textarea className="w-full border rounded px-2 py-1"></textarea>
       </div>
-
-      <button
-        onClick={handleSubmit}
-        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-      >
-        Submit
-      </button>
     </div>
   );
 }
