@@ -14,7 +14,7 @@ export default function Tests(props) {
           className="bg-gradient-to-r mt-14 from-teal-300 via-green-100 to-white max-w-sm m-2 bg-white hover:scale-105 
          rounded-lg shadow-md"
         >
-          <Link onClick={loadcontent} to="/about">
+          <Link onClick={loadcontent} to="/product/wheelchair">
             <img
               className=" w-96 h-64 object-cover rounded-t-lg transition duration-300 transform "
               src="https://www.standardhealthcare.in/wp-content/uploads/2018/07/Wheel-Chair-Standing.jpg"
