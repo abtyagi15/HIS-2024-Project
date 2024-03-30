@@ -16,7 +16,7 @@ export default function Tests(props) {
         >
           <Link onClick={loadcontent} to="/about">
             <img
-              className=" w-96 h-64 object-cover rounded-t-lg transition duration-300 transform hover:blur-md"
+              className=" w-96 h-64 object-cover rounded-t-lg transition duration-300 transform "
               src="https://www.standardhealthcare.in/wp-content/uploads/2018/07/Wheel-Chair-Standing.jpg"
               alt=""
             />

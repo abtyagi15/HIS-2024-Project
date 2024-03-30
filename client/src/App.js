@@ -19,6 +19,7 @@ import VerifyEmail from "./img/VerifyEmail";
 import DonationForm from "./Forms/donorForm";
 import Login from "./img/Login";
 import FindLocation from "./utils/FindLocation";
+import SellRent from "./Forms/sellForm";
 
 function App() {
   const progress = new ProgressBar();
@@ -153,6 +154,14 @@ function App() {
                 <OpenRoute>
                   <VerifyEmail />
                 </OpenRoute>
+              }
+            />
+            <Route
+              path="/sell-form"
+              element={
+                <PrivateRoute>
+                  <SellRent />
+                </PrivateRoute>
               }
             />
           </Routes>

@@ -111,10 +111,9 @@ const Register = ({ handleToggle }) => {
           <input
             type="email"
             id="email"
-            name="email"
-            value={formData.email}
-            onChange={changeHandler}
-            className="form-input  form-input mt-1 block w-full appearance-none rounded-none relative px-3 py-2 border border-black placeholder-gray-500
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="form-input mt-1 block w-full form-input mt-1 block w-full appearance-none rounded-none relative px-3 py-2 border border-black placeholder-gray-500
              text-gray-900 rounded-b-md
              focus:outline-none focus:ring-indigo-500 focus:black focus:z-10 sm:text-sm"
           />
@@ -126,10 +125,9 @@ const Register = ({ handleToggle }) => {
           <input
             type="password"
             id="password"
-            name="password"
-            value={formData.password}
-            onChange={changeHandler}
-            className="form-input  form-input mt-1 block w-full appearance-none rounded-none relative px-3 py-2 border border-black placeholder-gray-500
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="form-input mt-1 block w-full form-input mt-1 block w-full appearance-none rounded-none relative px-3 py-2 border border-black placeholder-gray-500
              text-gray-900 rounded-b-md
              focus:outline-none focus:ring-indigo-500 focus:black focus:z-10 sm:text-sm"
           />
@@ -158,7 +156,8 @@ const Register = ({ handleToggle }) => {
         </button>
       </form>
       <p className="mt-4 text-blue-500 cursor-pointer" onClick={handleToggle}>
-        <span className="text-black">Already have an account?</span> Login
+        <span className="text-black">Already have an account?</span>
+        <Link to="/login"> Login</Link>
       </p>
     </div>
   );
