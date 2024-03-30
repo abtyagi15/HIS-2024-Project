@@ -18,6 +18,7 @@ import ResetPassword from "./img/ResetPassword";
 import VerifyEmail from "./img/VerifyEmail";
 import DonationForm from "./Forms/donorForm";
 import Login from "./img/Login";
+import FindLocation from "./utils/FindLocation";
 
 function App() {
   const progress = new ProgressBar();
