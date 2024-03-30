@@ -1,6 +1,8 @@
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const generatedOtp = require("../utils/otpGenerator");
+const OTP = require("../models/OTP");
 
 exports.register = async (req, res) => {
   try {
@@ -25,22 +27,64 @@ exports.register = async (req, res) => {
         message: "Account already exists with this email id",
       });
     }
-    const hashedPassword = await bcrypt.hash(password, 10);
-    await new User.create({
-      firstName,
-      lastName,
-      email,
-      password: hashedPassword,
-    });
+
+    if (!user) {
+      const otp = generatedOtp();
+      // console.log("Otp generated: ", otp);
+      try {
+        const user = await OTP.findOne({ email: email });
+
+        if (user) {
+          user.otp = otp;
+          await user.save();
+        } else {
+          await OTP.create({ email: email, otp: otp });
+        }
+      } catch (error) {
+        console.error("Error updating or creating OTP:", error);
+      }
+      
+    }
 
     return res.status(201).json({
       success: true,
-      message: "User created successfully",
+      message: "Otp sent to the user for verification",
     });
   } catch (e) {
     console.error(e);
     console.log("Error in Auth controller: register");
   }
+};
+
+exports.verifyOtp = async (req, res) => {
+  const { firstName, lastName, email, password, otp } = req.body;
+  const userExists = await User.findOne({email: email});
+  if(userExists){
+    return res.status(400).json({
+      success: false,
+      message: "Account already exists with this email id"
+    });
+  }
+  const user = await OTP.findOne({ email });
+  if (user.otp !== otp) {
+    return res.status(400).json({
+      success: false,
+      message: "Invalid OTP entered. Please try again",
+    });
+  }
+  await OTP.findOneAndDelete({ email });
+  const hashedPassword = await bcrypt.hash(password, 10);
+  await User.create({
+    firstName,
+    lastName,
+    email,
+    password: hashedPassword,
+  });
+
+  return res.json({
+    success: true,
+    message: "Account created successfully",
+  });
 };
 
 exports.login = async (req, res) => {
