@@ -4,7 +4,7 @@ import About from "./img/About";
 import Main from "./main";
 import Booking from "./img/Book";
 import Footer from "./components/Footer";
-import Contact from "./img/contact";
+// import Contact from "./img/contact";
 import Error from "./img/error";
 import Header from "./components/Header";
 import Donate from "./components/Donate";
@@ -18,7 +18,6 @@ import ResetPassword from "./img/ResetPassword";
 import VerifyEmail from "./img/VerifyEmail";
 import DonationForm from "./Forms/donorForm";
 import Login from "./img/Login";
-import FindLocation from "./utils/FindLocation";
 
 function App() {
   const progress = new ProgressBar();
@@ -65,7 +64,7 @@ function App() {
     setTimeout(() => {
       let location = window.location.pathname;
       let home = document.getElementById("home");
-      let contact = document.getElementById("contact");
+      let contact = document.getElementById("donate");
       let about = document.getElementById("about");
       if (home && contact && about) {
         if (location === "/about") {
@@ -107,13 +106,14 @@ function App() {
               <Route exact path="/location" element={<FindLocation />} />
               <Route exact path="/" element={<Main load={loadcontent} />} />
               <Route exact path="/about" element={<About />} />
-              <Route exact path="/contact" element={<Contact />} />
+              {/* <Route exact path="/contact" element={<Contact />} /> */}
               <Route exact path="/book" element={<Booking />} />
               <Route exact path="/test" element={<Test />} />
               <Route exact path="/donate" element={<Donate />} />
               <Route exact path="/donation-form" element={<DonationForm />} />
               <Route exact path="/login" element={<Login />} />
               <Route exact path="/register" element={<Register />} />
+              <Route exact path="/sell-form" element={<SellRent />} />
               <Route
                 path="/login"
                 element={

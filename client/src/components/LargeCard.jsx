@@ -15,22 +15,22 @@ const LargeCard = (props) => {
       <div className="flex head-1 justify-between py-5">
         <div className="text-6xl font-semibold text-white">
           <p>
-            WE <span className="font-bold">CARE</span>
+            UNLOCKING <span className="font-bold">CARE</span>
           </p>
-          <p>ABOUT YOUR</p>
+          <p>ON DEMAND</p>
           <p>
-            <span className="font-bold">HEALTH</span> &{" "}
-            <span className="font-bold">WELLNESS</span>
+            <span className="font-bold">WITH</span>{" "}
+            <span className="font-bold">MEDLEASE</span>
           </p>
           <div className="text-base mt-5 font-normal text-white">
             <p>A New and Efficient way of helping people</p>
             <p>and saving lives.</p>
           </div>
-          <div className="bg-[#cfecea] w-fit px-5 py-3 shadow-lg shadow-green-700/60 text-base text-black font-medium rounded-full mt-5">
+          <div className="bg-[#cfecea] w-fit px-5 py-3 shadow-lg shadow-green-700/60 text-base cursor-pointer text-black font-medium rounded-full mt-5">
             <p className="flex items-center justify-center gap-3">
               Buy Now
               <span className="bg-white/20 p-1 rounded-full">
-                <Link onClick={loadcontent} to="/contact">
+                <Link onClick={loadcontent} to="/test">
                   <AiOutlineArrowRight />
                 </Link>
               </span>
