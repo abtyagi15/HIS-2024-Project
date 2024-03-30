@@ -103,6 +103,7 @@ function App() {
           <BrowserRouter>
             <Header load={loadcontent} />
             <Routes>
+              <Route exact path="/location" element={<FindLocation />} />
               <Route exact path="/" element={<Main load={loadcontent} />} />
               <Route exact path="/about" element={<About />} />
               <Route exact path="/contact" element={<Contact />} />

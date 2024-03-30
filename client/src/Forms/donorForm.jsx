@@ -52,6 +52,7 @@ function DonationForm() {
 }
 
 function DonorForm() {
+  const handleSubmit = () => {console.log("Hello")};
   return (
     <div className="bg-white p-4 rounded-lg shadow-lg w-96">
       <h3 className="text-lg mb-4">Donor Information</h3>
