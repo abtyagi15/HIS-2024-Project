@@ -12,7 +12,6 @@ function DonationForm() {
   };
 
   const handleSubmit = () => {
-    // Logic to handle form submission
     console.log("Form submitted!");
   };
 
@@ -84,7 +83,7 @@ function DonorForm() {
         toast.error("Please fill all the fields");
         return;
       }
-      
+
       event.preventDefault();
       const response = await fetch(`${backendUrl}/donor`, {
         method: "POST",
