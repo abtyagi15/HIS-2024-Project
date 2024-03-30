@@ -34,7 +34,7 @@ const VerifyEmail = () => {
       });
       const data = await response.json();
       if (data.success) {
-        navigate("/home");
+        navigate("/login");
       } else {
         alert("Invalid OTP. Please try again.");
       }
