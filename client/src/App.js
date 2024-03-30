@@ -7,15 +7,17 @@ import Footer from "./components/Footer";
 import Contact from "./img/contact";
 import Error from "./img/error";
 import Header from "./components/Header";
+import Donate from "./components/Donate";
 import ProgressBar from "@badrap/bar-of-progress";
 import { Offline, Online } from "react-detect-offline";
 import Test from "./components/Tests";
-import Login from "./img/Login";
 import Register from "./img/Register";
 import OpenRoute from "./components/core/Auth/OpenRoute";
 // import PrivateRoute from "./components/core/Auth/PrivateRoute";
 import ResetPassword from "./img/ResetPassword";
 import VerifyEmail from "./img/VerifyEmail";
+import DonationForm from "./Forms/donorForm";
+import Login from "./img/Login";
 
 function App() {
   const progress = new ProgressBar();
@@ -106,6 +108,10 @@ function App() {
               <Route exact path="/contact" element={<Contact />} />
               <Route exact path="/book" element={<Booking />} />
               <Route exact path="/test" element={<Test />} />
+              <Route exact path="/donate" element={<Donate />} />
+              <Route exact path="/donation-form" element={<DonationForm />} />
+              <Route exact path="/login" element={<Login />} />
+              <Route exact path="/register" element={<Register />} />
               <Route
                 path="/login"
                 element={

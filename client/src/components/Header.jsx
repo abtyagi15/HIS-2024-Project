@@ -7,7 +7,7 @@ function Header(props) {
   const loadcontent = props.load;
 
   return (
-    <div className="flex justify-between p-10">
+    <div className="flex justify-between p-10 ">
       <img src={Logo} alt="logo" />
       {/* Right  */}
       <div className="flex gap-10 text-white">
