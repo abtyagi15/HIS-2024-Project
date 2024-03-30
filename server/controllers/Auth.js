@@ -65,6 +65,12 @@ exports.verifyOtp = async (req, res) => {
       message: "Account already exists with this email id"
     });
   }
+  if(!otp){
+    return res.status(400).json({
+      success: false,
+      message: "OTP is required"
+    });
+  }
   const user = await OTP.findOne({ email });
   if (user.otp !== otp) {
     return res.status(400).json({
