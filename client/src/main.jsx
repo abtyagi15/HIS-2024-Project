@@ -1,6 +1,6 @@
 import React from "react";
 
-import Tests from "./components/Tests";
+import Tests from "./components/Product";
 import LargeCard from "./components/LargeCard";
 import Donate from "./components/Donate";
 // import Address from "./components/Address";

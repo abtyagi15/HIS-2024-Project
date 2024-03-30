@@ -10,7 +10,7 @@ import Header from "./components/Header";
 import Donate from "./components/Donate";
 import ProgressBar from "@badrap/bar-of-progress";
 import { Offline, Online } from "react-detect-offline";
-import Test from "./components/Tests";
+import Product from "./components/Product";
 import Register from "./img/Register";
 import OpenRoute from "./components/core/Auth/OpenRoute";
 // import PrivateRoute from "./components/core/Auth/PrivateRoute";
@@ -89,7 +89,7 @@ function App() {
             <Route exact path="/" element={<Main load={loadcontent} />} />
             <Route exact path="/about" element={<About />} />
             <Route exact path="/book" element={<Booking />} />
-            <Route exact path="/test" element={<Test />} />
+            <Route exact path="/products" element={<Product />} />
             <Route exact path="/donate" element={<Donate />} />
             <Route exact path="/donation-form" element={<DonationForm />} />
 
