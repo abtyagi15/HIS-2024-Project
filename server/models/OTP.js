@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const mailSender = require("../utils/mailSender");
-const mailBody = require("../mail/templates/accountVerfication");
+const mailBody = require("../mail/templates/AccountVerification");
 
 const otpSchema = new mongoose.Schema({
   email: {
@@ -29,7 +29,7 @@ otpSchema.pre("save",async function(next){
 async function sendAccoumtVerificationMail(email,otp){
   try{
       const body = mailBody(otp);
-      const title = "CampusNavigator Account Verification OTP";
+      const title = "Account Verification OTP";
       const mailResponse = await mailSender(email,title,body);
       console.log(mailResponse);
 
