@@ -18,6 +18,7 @@ import ResetPassword from "./img/ResetPassword";
 import VerifyEmail from "./img/VerifyEmail";
 import DonationForm from "./Forms/donorForm";
 import Login from "./img/Login";
+import FindLocation from "./components/FindLocation";
 
 function App() {
   const progress = new ProgressBar();
@@ -100,53 +101,49 @@ function App() {
     <>
       <Online>
         <div className="max-w-7xl  mx-auto">
-          <BrowserRouter>
-            <Header load={loadcontent} />
-            <Routes>
-              <Route exact path="/location" element={<FindLocation />} />
-              <Route exact path="/" element={<Main load={loadcontent} />} />
-              <Route exact path="/about" element={<About />} />
-              <Route exact path="/contact" element={<Contact />} />
-              <Route exact path="/book" element={<Booking />} />
-              <Route exact path="/test" element={<Test />} />
-              <Route exact path="/donate" element={<Donate />} />
-              <Route exact path="/donation-form" element={<DonationForm />} />
-              <Route exact path="/login" element={<Login />} />
-              <Route exact path="/register" element={<Register />} />
-              <Route
-                path="/login"
-                element={
-                  <OpenRoute>
-                    <Login />
-                  </OpenRoute>
-                }
-              />
-              <Route
-                path="/forgot-password"
-                element={
-                  <OpenRoute>
-                    <ResetPassword />
-                  </OpenRoute>
-                }
-              />
-              <Route
-                path="/signup"
-                element={
-                  <OpenRoute>
-                    <Register />
-                  </OpenRoute>
-                }
-              />
-              <Route
-                path="/verify-email"
-                element={
-                  <OpenRoute>
-                    <VerifyEmail />
-                  </OpenRoute>
-                }
-              />
-            </Routes>
-          </BrowserRouter>
+          <Header load={loadcontent} />
+          <Routes>
+            <Route exact path="/location" element={<FindLocation />} />
+            <Route exact path="/" element={<Main load={loadcontent} />} />
+            <Route exact path="/about" element={<About />} />
+            <Route exact path="/book" element={<Booking />} />
+            <Route exact path="/test" element={<Test />} />
+            <Route exact path="/donate" element={<Donate />} />
+            <Route exact path="/donation-form" element={<DonationForm />} />
+
+            <Route
+              path="/login"
+              element={
+                <OpenRoute>
+                  <Login />
+                </OpenRoute>
+              }
+            />
+            <Route
+              path="/forgot-password"
+              element={
+                <OpenRoute>
+                  <ResetPassword />
+                </OpenRoute>
+              }
+            />
+            <Route
+              path="/register"
+              element={
+                <OpenRoute>
+                  <Register />
+                </OpenRoute>
+              }
+            />
+            <Route
+              path="/verify-email"
+              element={
+                <OpenRoute>
+                  <VerifyEmail />
+                </OpenRoute>
+              }
+            />
+          </Routes>
         </div>
         <Footer />
       </Online>
