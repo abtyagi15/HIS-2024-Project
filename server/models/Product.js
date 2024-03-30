@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 
 // Define the schema for the product model
 const productSchema = new mongoose.Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+  ownerName: {
+    type: String,
+    required: true,
   },
   contactNo: {
     type: String,
@@ -21,6 +21,14 @@ const productSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
+  },
+  productDetails:{
+    type: String,
+    required: true,
+  },
+  city: {
+    type: String,
+    required: true,
   },
   latitude: {
     type: String,
