@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
+// import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 function DonationForm() {
   const [userType, setUserType] = useState("donor"); // Default to donor
@@ -52,7 +56,60 @@ function DonationForm() {
 }
 
 function DonorForm() {
-  // const handleSubmit = () => {console.log("Hello")};
+  const backendUrl = "http://localhost:3001";
+  // const dispatch = useDispatch();
+  const navigate = useNavigate();
+  // const {setSignupData} = useSelector((state) => state.auth);
+  const [formData, setFormData] = useState({
+    ownerName: "",
+    contactNo: "",
+    city: "",
+    productDetails: "",
+  });
+
+  const handleChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  };
+  const submitHandler = async (event) => {
+    try {
+      if (
+        !formData.ownerName ||
+        !formData.contactNo ||
+        !formData.city ||
+        !formData.productDetails
+      ) {
+        toast.error("Please fill all the fields");
+        return;
+      }
+      
+      event.preventDefault();
+      const response = await fetch(`${backendUrl}/donor`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+      console.log(data);
+
+      if (data.success === true) {
+        toast.success("OTP has been sent to your email id");
+        navigate("/verify-email");
+      } else {
+        console.log("Checking this statement");
+        toast.error("Account already exists with this email id");
+        return;
+      }
+    } catch (err) {
+      console.error(err);
+      console.log("Error in signup submit handler");
+    }
+  };
+
   return (
     <div className="bg-white p-4 rounded-lg shadow-lg w-96">
       <h3 className="text-lg mb-4 text-center font-normal">
@@ -60,7 +117,13 @@ function DonorForm() {
       </h3>
       <div className="mb-4">
         <label className="block mb-1">Name:</label>
-        <input type="text" className="w-full border rounded px-2 py-1" />
+        <input
+          type="text"
+          className="w-full border rounded px-2 py-1"
+          name="ownerName"
+          value={formData.ownerName}
+          onChang
+        />
       </div>
 
       <div className="mb-4">

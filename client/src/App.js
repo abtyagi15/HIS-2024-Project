@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import About from "./img/About";
 import Main from "./main";
@@ -106,14 +106,13 @@ function App() {
               <Route exact path="/location" element={<FindLocation />} />
               <Route exact path="/" element={<Main load={loadcontent} />} />
               <Route exact path="/about" element={<About />} />
-              {/* <Route exact path="/contact" element={<Contact />} /> */}
+              <Route exact path="/contact" element={<Contact />} />
               <Route exact path="/book" element={<Booking />} />
               <Route exact path="/test" element={<Test />} />
               <Route exact path="/donate" element={<Donate />} />
               <Route exact path="/donation-form" element={<DonationForm />} />
               <Route exact path="/login" element={<Login />} />
               <Route exact path="/register" element={<Register />} />
-              <Route exact path="/sell-form" element={<SellRent />} />
               <Route
                 path="/login"
                 element={
