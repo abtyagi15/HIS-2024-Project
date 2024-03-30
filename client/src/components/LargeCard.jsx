@@ -40,7 +40,7 @@ const LargeCard = (props) => {
         <div className="relative ">
           <div className="bg-gradient-to-tr from-green-400 to-green-200 py-5 rounded-r-lg rounded-tl-full">
             <img
-              className="w-96 scale-125 object-contain banner"
+              className="w-96 scale-125 object-contain banner rounded-md"
               alt="Hospital"
               src="https://img.freepik.com/free-vector/health-professional-team_52683-36023.jpg?w=2000"
             />
