@@ -9,6 +9,7 @@ import Error from "./img/error";
 import Header from "./components/Header";
 import ProgressBar from "@badrap/bar-of-progress";
 import { Offline, Online } from "react-detect-offline";
+import Test from "./components/Tests";
 
 function App() {
   const progress = new ProgressBar();
@@ -57,30 +58,32 @@ function App() {
       let home = document.getElementById("home");
       let contact = document.getElementById("contact");
       let about = document.getElementById("about");
-      if (location === "/about") {
-        about.classList.remove("passive");
+      if (home && contact && about) {
+        if (location === "/about") {
+          about.classList.remove("passive");
 
-        home.classList.add("passive");
-        contact.classList.add("passive");
+          home.classList.add("passive");
+          contact.classList.add("passive");
 
-        about.classList.add("active");
-      } else if (location === "/contact") {
-        contact.classList.remove("passive");
+          about.classList.add("active");
+        } else if (location === "/contact") {
+          contact.classList.remove("passive");
 
-        home.classList.add("passive");
-        about.classList.add("passive");
+          home.classList.add("passive");
+          about.classList.add("passive");
 
-        contact.classList.add("active");
-      } else if (location === "/book") {
-        contact.classList.add("passive");
-        about.classList.add("passive");
-        home.classList.add("passive");
-      } else {
-        home.classList.remove("passive");
-        about.classList.add("passive");
-        contact.classList.add("passive");
+          contact.classList.add("active");
+        } else if (location === "/book") {
+          contact.classList.add("passive");
+          about.classList.add("passive");
+          home.classList.add("passive");
+        } else {
+          home.classList.remove("passive");
+          about.classList.add("passive");
+          contact.classList.add("passive");
 
-        home.classList.add("active");
+          home.classList.add("active");
+        }
       }
     }, 1);
   };
@@ -92,10 +95,11 @@ function App() {
           <BrowserRouter>
             <Header load={loadcontent} />
             <Routes>
-              <Route path="/" element={<Main load={loadcontent} />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/book" element={<Booking />} />
+              <Route exact path="/" element={<Main load={loadcontent} />} />
+              <Route exact path="/about" element={<About />} />
+              <Route exact path="/contact" element={<Contact />} />
+              <Route exact path="/book" element={<Booking />} />
+              <Route exact path="/test" element={<Test />} />
             </Routes>
           </BrowserRouter>
         </div>
