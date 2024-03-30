@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { toast } from "react-hot-toast";
 import { setSignupData } from "../slices/authSlice";
+import { Link } from "react-router-dom";
 
 const Register = ({ handleToggle }) => {
   const backendUrl = process.env.REACT_APP_BACKEND_URL;
@@ -111,9 +112,9 @@ const Register = ({ handleToggle }) => {
           <input
             type="email"
             id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="form-input mt-1 block w-full form-input mt-1 block w-full appearance-none rounded-none relative px-3 py-2 border border-black placeholder-gray-500
+            value={formData.email}
+            onChange={changeHandler}
+            className="form-input mform-input mt-1 block w-full appearance-none rounded-none relative px-3 py-2 border border-black placeholder-gray-500
              text-gray-900 rounded-b-md
              focus:outline-none focus:ring-indigo-500 focus:black focus:z-10 sm:text-sm"
           />
@@ -125,9 +126,9 @@ const Register = ({ handleToggle }) => {
           <input
             type="password"
             id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="form-input mt-1 block w-full form-input mt-1 block w-full appearance-none rounded-none relative px-3 py-2 border border-black placeholder-gray-500
+            value={formData.password}
+            onChange={changeHandler}
+            className="form-input form-input mt-1 block w-full appearance-none rounded-none relative px-3 py-2 border border-black placeholder-gray-500
              text-gray-900 rounded-b-md
              focus:outline-none focus:ring-indigo-500 focus:black focus:z-10 sm:text-sm"
           />
