@@ -7,7 +7,7 @@ function Header(props) {
   const loadcontent = props.load;
 
   return (
-    <div className="flex justify-between p-10 cursor-pointer">
+    <div className="flex justify-between p-10 cursor-pointer items-center">
       <a href="/">
         {" "}
         <img src={Logo} alt="logo" />
@@ -20,7 +20,7 @@ function Header(props) {
           </Link>
         </p>
         <p id="about">
-          <Link to="/test" onClick={loadcontent}>
+          <Link to="/products" onClick={loadcontent}>
             Products
           </Link>
         </p>
