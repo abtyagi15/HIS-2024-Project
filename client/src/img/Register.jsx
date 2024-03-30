@@ -1,28 +1,80 @@
-// Register.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { toast } from "react-hot-toast";
+import { setSignupData } from "../slices/authSlice";
 import { Link } from "react-router-dom";
 
 const Register = ({ handleToggle }) => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle register logic here
-    console.log("First Name:", firstName);
-    console.log("Last Name:", lastName);
-    console.log("Email:", email);
-    console.log("Password:", password);
-    console.log("Confirm Password:", confirmPassword);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  useEffect(() => {
+    console.log("signupData", formData);
+  }, [formData]);
+
+  const changeHandler = (event) => {
+    const { name, value } = event.target;
+    setFormData((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
   };
 
+  const submitHandler = async (event) => {
+    try {
+      if (
+        !formData.firstName ||
+        !formData.lastName ||
+        !formData.email ||
+        !formData.password ||
+        !formData.confirmPassword
+      ) {
+        toast.error("Please fill all the fields");
+        return;
+      }
+      if (formData.password !== formData.confirmPassword) {
+        toast.error("Passwords Do Not Match");
+        return;
+      }
+      dispatch(setSignupData(formData));
+      event.preventDefault();
+      const response = await fetch(`${backendUrl}/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+      console.log(data);
+      if (data.success === true) {
+        toast.success("OTP has been sent to your email id");
+        navigate("/verify-email");
+      } else {
+        console.log("Checking this statement");
+        toast.error("Account already exists with this email id");
+        return;
+      }
+    } catch (err) {
+      console.error(err);
+      console.log("Error in signup submit handler");
+    }
+  };
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-[#d7f3f4]">
       <h1 className="text-3xl font-bold mb-4">Sign Up</h1>
-      <form onSubmit={handleSubmit} className="w-full max-w-sm">
+      <form className="w-full max-w-sm">
         <div className="mb-4 border-black">
           <label htmlFor="firstName" className="block text-gray-700">
             First Name
@@ -30,8 +82,9 @@ const Register = ({ handleToggle }) => {
           <input
             type="text"
             id="firstName"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            name="firstName"
+            value={formData.firstName}
+            onChange={changeHandler}
             className="form-input mt-1 block w-full form-input  appearance-none rounded-none relative px-3 py-2 border border-black placeholder-gray-500
              text-gray-900 rounded-b-md
              focus:outline-none focus:ring-indigo-500 focus:black focus:z-10 sm:text-sm"
@@ -44,8 +97,9 @@ const Register = ({ handleToggle }) => {
           <input
             type="text"
             id="lastName"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            name="lastName"
+            value={formData.lastName}
+            onChange={changeHandler}
             className="form-input mt-1 block w-full form-input   appearance-none rounded-none relative px-3 py-2 border border-black placeholder-gray-500
              text-gray-900 rounded-b-md
              focus:outline-none focus:ring-indigo-500 focus:black focus:z-10 sm:text-sm"
@@ -58,9 +112,9 @@ const Register = ({ handleToggle }) => {
           <input
             type="email"
             id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="form-input mt-1 block w-full form-input  appearance-none rounded-none relative px-3 py-2 border border-black placeholder-gray-500
+            value={formData.email}
+            onChange={changeHandler}
+            className="form-input mform-input mt-1 block w-full appearance-none rounded-none relative px-3 py-2 border border-black placeholder-gray-500
              text-gray-900 rounded-b-md
              focus:outline-none focus:ring-indigo-500 focus:black focus:z-10 sm:text-sm"
           />
@@ -72,9 +126,9 @@ const Register = ({ handleToggle }) => {
           <input
             type="password"
             id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="form-input mt-1 block w-full form-input appearance-none rounded-none relative px-3 py-2 border border-black placeholder-gray-500
+            value={formData.password}
+            onChange={changeHandler}
+            className="form-input form-input mt-1 block w-full appearance-none rounded-none relative px-3 py-2 border border-black placeholder-gray-500
              text-gray-900 rounded-b-md
              focus:outline-none focus:ring-indigo-500 focus:black focus:z-10 sm:text-sm"
           />
@@ -86,8 +140,9 @@ const Register = ({ handleToggle }) => {
           <input
             type="password"
             id="confirmPassword"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            name="confirmPassword"
+            value={formData.confirmPassword}
+            onChange={changeHandler}
             className="form-input mt-1 block w-full appearance-none rounded-none relative px-3 py-2 border border-black placeholder-gray-500
              text-gray-900 rounded-b-md
              focus:outline-none focus:ring-indigo-500 focus:black focus:z-10 sm:text-sm"
@@ -96,6 +151,7 @@ const Register = ({ handleToggle }) => {
         <button
           type="submit"
           className="bg-green-400 mx-auto text-white py-2 px-4 rounded hover:bg-green-500"
+          onClick={submitHandler}
         >
           Register
         </button>

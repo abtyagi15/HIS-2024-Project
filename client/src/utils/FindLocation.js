@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-
+import equipments from "../assests/equipments.json"
 const LocationButton = () => {
+  console.log(equipments);
   const [location, setLocation] = useState(null);
   const apiKey = "Ag1oRvw3BjVXh8qqJvM7b2LGlq4Dw07pmTjCR3aJxC2VLCJZy2fvX2s2-2QmqN_a";
   const [mapData, setMapData] = useState(null);

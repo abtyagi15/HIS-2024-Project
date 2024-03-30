@@ -20,6 +20,7 @@ import DonationForm from "./Forms/donorForm";
 import Login from "./img/Login";
 import FindLocation from "./utils/FindLocation";
 import SellRent from "./Forms/sellForm";
+import WheelChair from "./components/products/WheelChair";
 
 function App() {
   const progress = new ProgressBar();
@@ -89,6 +90,15 @@ function App() {
               element={
                 <PrivateRoute>
                   <About />
+                </PrivateRoute>
+              }
+            />
+            
+            <Route
+              path="/product/wheelchair"
+              element={
+                <PrivateRoute>
+                  <WheelChair />
                 </PrivateRoute>
               }
             />
