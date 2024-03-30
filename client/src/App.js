@@ -13,7 +13,7 @@ import { Offline, Online } from "react-detect-offline";
 import Product from "./components/Product";
 import Register from "./img/Register";
 import OpenRoute from "./components/core/Auth/OpenRoute";
-// import PrivateRoute from "./components/core/Auth/PrivateRoute";
+import PrivateRoute from "./components/core/Auth/PrivateRoute";
 import ResetPassword from "./img/ResetPassword";
 import VerifyEmail from "./img/VerifyEmail";
 import DonationForm from "./Forms/donorForm";
@@ -34,12 +34,9 @@ function App() {
       about.classList.remove("passive");
 
       home.classList.add("passive");
-      
 
       about.classList.add("active");
-    }
-
-     else if (location === "/book") {
+    } else if (location === "/book") {
       about.classList.add("passive");
       home.classList.add("passive");
     } else {
@@ -65,7 +62,6 @@ function App() {
           home.classList.add("passive");
 
           about.classList.add("active");
-        
         } else if (location === "/book") {
           about.classList.add("passive");
           home.classList.add("passive");
@@ -87,12 +83,46 @@ function App() {
           <Routes>
             <Route exact path="/location" element={<FindLocation />} />
             <Route exact path="/" element={<Main load={loadcontent} />} />
-            <Route exact path="/about" element={<About />} />
-            <Route exact path="/book" element={<Booking />} />
-            <Route exact path="/products" element={<Product />} />
-            <Route exact path="/donate" element={<Donate />} />
-            <Route exact path="/donation-form" element={<DonationForm />} />
-
+            <Route
+              path="/about"
+              element={
+                <PrivateRoute>
+                  <About />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/book"
+              element={
+                <PrivateRoute>
+                  <Booking />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/products"
+              element={
+                <PrivateRoute>
+                  <Product />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/donate"
+              element={
+                <PrivateRoute>
+                  <Donate />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/donation-form"
+              element={
+                <PrivateRoute>
+                  <DonationForm />
+                </PrivateRoute>
+              }
+            />
             <Route
               path="/login"
               element={

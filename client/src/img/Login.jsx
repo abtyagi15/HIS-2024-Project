@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Link } from "react-router-dom";
 const Login = ({ handleToggle }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -51,7 +51,7 @@ const Login = ({ handleToggle }) => {
         </button>
       </form>
       <p className="mt-4 text-blue-500 cursor-pointer" onClick={handleToggle}>
-        <sppan className="text-black">New user?</sppan> Sign Up
+        <sppan className="text-black">New user?</sppan> <Link to="/register">Sign Up</Link>
       </p>
     </div>
   );
