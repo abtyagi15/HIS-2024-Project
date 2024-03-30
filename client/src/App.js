@@ -10,6 +10,12 @@ import Header from "./components/Header";
 import ProgressBar from "@badrap/bar-of-progress";
 import { Offline, Online } from "react-detect-offline";
 import Test from "./components/Tests";
+import Login from "./img/Login";
+import Register from "./img/Register";
+import OpenRoute from "./components/core/Auth/OpenRoute";
+// import PrivateRoute from "./components/core/Auth/PrivateRoute";
+import ResetPassword from "./img/ResetPassword";
+import VerifyEmail from "./img/VerifyEmail";
 
 function App() {
   const progress = new ProgressBar();
@@ -100,6 +106,38 @@ function App() {
               <Route exact path="/contact" element={<Contact />} />
               <Route exact path="/book" element={<Booking />} />
               <Route exact path="/test" element={<Test />} />
+              <Route
+                path="/login"
+                element={
+                  <OpenRoute>
+                    <Login />
+                  </OpenRoute>
+                }
+              />
+              <Route
+                path="/forgot-password"
+                element={
+                  <OpenRoute>
+                    <ResetPassword />
+                  </OpenRoute>
+                }
+              />
+              <Route
+                path="/signup"
+                element={
+                  <OpenRoute>
+                    <Register />
+                  </OpenRoute>
+                }
+              />
+              <Route
+                path="/verify-email"
+                element={
+                  <OpenRoute>
+                    <VerifyEmail />
+                  </OpenRoute>
+                }
+              />
             </Routes>
           </BrowserRouter>
         </div>
