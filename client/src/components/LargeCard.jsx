@@ -26,16 +26,16 @@ const LargeCard = (props) => {
             <p>A New and Efficient way of helping people</p>
             <p>and saving lives.</p>
           </div>
-          <div className="bg-[#cfecea] w-fit px-5 py-3 shadow-lg shadow-green-700/60 text-base cursor-pointer text-black font-medium rounded-full mt-5">
-            <p className="flex items-center justify-center gap-3">
-              Buy Now
-              <span className="bg-white/20 p-1 rounded-full">
-                <Link onClick={loadcontent} to="/test">
+          <Link to="/products">
+            <div className="bg-[#cfecea] w-fit px-5 py-3 shadow-lg shadow-green-700/60 text-base cursor-pointer text-black font-medium rounded-full mt-5">
+              <p className="flex items-center justify-center gap-3">
+                Buy Now
+                <span className="bg-white/20 p-1 rounded-full">
                   <AiOutlineArrowRight />
-                </Link>
-              </span>
-            </p>
-          </div>
+                </span>
+              </p>
+            </div>
+          </Link>
         </div>
         <div className="relative ">
           <div className="bg-gradient-to-tr from-green-400 to-green-200 py-5 rounded-r-lg rounded-tl-full">
