@@ -43,7 +43,7 @@ function DonationForm() {
 
       <button
         onClick={handleSubmit}
-        className="bg-[#5eead4] hover:bg-white text-black font-bold py-2 px-4 rounded mt-4"
+        className="bg-[#5eead4] hover:bg-white text-black font-medium py-2 px-4 rounded mt-4"
       >
         Submit
       </button>
@@ -54,7 +54,9 @@ function DonationForm() {
 function DonorForm() {
   return (
     <div className="bg-white p-4 rounded-lg shadow-lg w-96">
-      <h3 className="text-lg mb-4">Donor Information</h3>
+      <h3 className="text-lg mb-4 text-center font-normal">
+        Donor Information
+      </h3>
       <div className="mb-4">
         <label className="block mb-1">Name:</label>
         <input type="text" className="w-full border rounded px-2 py-1" />
@@ -86,7 +88,9 @@ function DonorForm() {
 function RecipientForm() {
   return (
     <div className="bg-white p-4 rounded-lg shadow-lg w-96">
-      <h3 className="text-lg mb-4">Recipient Information</h3>
+      <h3 className="text-lg mb-4 text-center font-normal">
+        Recipient Information
+      </h3>
       <div className="mb-4">
         <label className="block mb-1">Name:</label>
         <input type="text" className="w-full border rounded px-2 py-1" />
