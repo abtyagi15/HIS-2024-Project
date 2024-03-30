@@ -21,6 +21,10 @@ import Login from "./img/Login";
 import FindLocation from "./utils/FindLocation";
 import SellRent from "./Forms/sellForm";
 import WheelChair from "./components/products/WheelChair";
+import Oximeter from "./components/products/Oximeter";
+import Crutches from "./components/products/Crutches";
+import Commode from "./components/products/Commode";
+import Walker from "./components/products/Walker";
 
 function App() {
   const progress = new ProgressBar();
@@ -99,6 +103,38 @@ function App() {
               element={
                 <PrivateRoute>
                   <WheelChair />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/product/oximeter"
+              element={
+                <PrivateRoute>
+                  <Oximeter />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/product/crutches"
+              element={
+                <PrivateRoute>
+                  <Crutches />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/product/commode"
+              element={
+                <PrivateRoute>
+                  <Commode />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/product/walker"
+              element={
+                <PrivateRoute>
+                  <Walker />
                 </PrivateRoute>
               }
             />
