@@ -4,7 +4,7 @@ export default function Tests(props) {
   const loadcontent = props.load;
   return (
     <div className="px-5 py-5 flex flex-wrap flex-col container">
-      <h1 className="text-6xl font-bold text-white">Services</h1>
+      <h1 className="text-6xl font-bold text-white">Products</h1>
       <div
         id="test-container"
         className="container mt-5 p-3  rounded-t-3xl flex flex-wrap flex-row"
